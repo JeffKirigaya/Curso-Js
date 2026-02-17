@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hora do Dia</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        body {
+            background-color: rgb(241, 178, 100);
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-flow: column nowrap;
+        }
+
+        header {
+            padding: 20px;
+            text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.589);
+        }
+
+        section {
+            background-color: white;
+            color: black;
+            height: 300px;
+            width: 400px;
+            border-radius: 8px;
+            box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.39);
+            text-align: center;
+        }
+
+        div p {
+            padding: 20px;
+        }
+
+        div.imagem img {
+            height: 220px;
+            width: 220px;
+            border-radius: 50%;
+        }
+
+        footer {
+            padding: 20px;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body onload="carregar()">
+    <header>
+        <h1>Hora do Dia</h1>
+    </header>
+    <section>
+        <div>
+            <p id="res">Agora são 9 horas.</p>
+        </div>
+        <div class="imagem">
+            <img id="foto" src="imagens/Dia.png" alt="">
+        </div>
+    </section>
+    <footer>
+        <p>&copy; CursoemVídeo</p>
+    </footer>
+
+    <script>
+        function carregar() {
+        var agora = new Date()
+        var horas = agora.getHours()
+        var i = window.document.getElementById('foto')
+        window.document.querySelector('p#res').innerHTML = `Agora são ${horas} horas.`
+        if (horas < 12) {
+            i.src = 'imagens/Dia.png'
+        } else if (horas < 18) {
+            window.document.body.style.backgroundColor = 'brown'
+            i.src = 'imagens/Tarde.png'
+        } else {
+            window.document.body.style.backgroundColor = 'gray'
+            i.src = 'imagens/Noite.png'
+        }
+    }
+    </script>
+</body>
+</html>
