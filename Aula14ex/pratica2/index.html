@@ -56,11 +56,16 @@
             var num = document.getElementById('txtnum').value
             var res = document.getElementById('res')
             res.innerHTML = ''
-            for (var n = 1; n <= 10; n++) {
+            if (num.length == 0) {
+                alert('Porfavor digite um número')
+                res.innerHTML = 'Digite um número acima'
+            } else {
+                for (var n = 1; n <= 10; n++) {
                 var mult = num * n
                 res.innerHTML += `${num} x ${n} = ${mult}<br>`
+                }
             }
-        }
+        }  
     </script>
 </body>
 </html>
