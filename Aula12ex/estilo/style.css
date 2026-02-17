@@ -1,0 +1,29 @@
+@charset "UTF-8";
+
+body {
+            background-color: rgb(90, 149, 236);
+            color: white;
+            display: flex;
+            flex-flow: column nowrap;
+            align-items: center;
+        }
+
+        section {
+            background-color: white;
+            color: black;
+            padding: 20px;
+            font-size: 1.2em;
+            border-radius: 10px;
+            box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.363);
+            width: 500px;
+        }
+
+        section img {
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+        }
+
+        section p#res {
+            text-align: center;
+        }

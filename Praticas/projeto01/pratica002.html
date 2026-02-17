@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verificador de idade</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        
+        body {
+            background-color: rgb(90, 149, 236);
+            color: white;
+            display: flex;
+            flex-flow: column nowrap;
+            align-items: center;
+        }
+
+        section {
+            background-color: white;
+            color: black;
+            padding: 20px;
+            font-size: 1.2em;
+            border-radius: 10px;
+            box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.363);
+            width: 500px;
+        }
+
+        section img {
+            display: none;
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+            margin-left: 100px;
+        }
+
+        section p#res {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Verificador de idade</h1>
+    </header>
+    <section>
+        <div>
+            <p>Ano de Nascimento: <input type="number" id="nasc"></p>
+            <p>Sexo: <input type="radio" name="sexo" id="sexm"><label for="sexm">Masculino</label><input type="radio" name="sexo" id="sexf"><label for="sexf">Feminino</label></p>
+            <input type="button" value="Verificar" onclick="verificar()">
+        </div>
+        <div>
+            <p id="res">Preencha os dados acima para ver o resultado!</p>
+            <img src="" alt="" id="foto">
+        </div>
+    </section>
+    <footer>
+        <p>&copy; CursoemVídeo</p>
+    </footer>
+
+    <script>
+        function verificar() {
+            var idade = window.document.getElementById('nasc').value
+            var ano = 2026 - idade
+            var sexf = window.document.getElementById('sexf')
+            var sexm = document.getElementById('sexm')
+            var res = document.querySelector('p#res')
+            var i = document.querySelector('img#foto')
+            if (sexm.checked) {
+                if (ano > 0 && ano < 18) {
+                    i.src = 'imagens/menino.png'
+                    res.innerHTML = `Detectamos um Menino com ${ano} anos.`
+                    i.style.display = 'block'
+                } else if (ano >= 18 && ano < 60) {
+                    i.src = 'imagens/adulto.png'
+                    res.innerHTML = `Detectamos um Adulto com ${ano} anos.`
+                    i.style.display = 'block'
+                } else if (ano > 60 && ano < 130) {
+                    i.src = 'imagens/velho.png'
+                    res.innerHTML = `Detectamos um Idoso com ${ano} anos.`
+                    i.style.display = 'block'
+                } else {
+                    res.innerHTML = '[ERRO] Preencha o ano corretamente'
+                }
+            } else if (sexf.checked) {
+                if (ano > 0 && ano < 18) {
+                    i.src = 'imagens/menina.png'
+                    res.innerHTML = `Detectamos um Menina com ${ano} anos.`
+                    i.style.display = 'block'
+                } else if (ano >= 18 && ano < 60) {
+                    i.src = 'imagens/adulta.png'
+                    res.innerHTML = `Detectamos um Adulta com ${ano} anos.`
+                    i.style.display = 'block'
+                } else if (ano > 60 && ano < 130) {
+                    i.src = 'imagens/velha.png'
+                    res.innerHTML = `Detectamos um Idosa com ${ano} anos.`
+                    i.style.display = 'block'
+                } else {
+                    res.innerHTML = '[ERRO] Preencha o ano corretamente'
+                }
+            } else {
+                res.innerHTML = '[ERROR] Porfavor escolha o sexo'
+            }
+        }
+    </script>
+</body>
+</html>
