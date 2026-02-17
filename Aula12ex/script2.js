@@ -19,7 +19,7 @@ function verificar() {
             } else if (idade < 50) {
                 //adulto
                 img.setAttribute('src', 'imagens/adulto.png')
-            } else {
+            } else  {
                 //idoso
                 img.setAttribute('src', 'imagens/velho.png')
             }

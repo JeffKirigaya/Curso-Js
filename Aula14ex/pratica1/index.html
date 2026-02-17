@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Super Contador</title>
+    <style>
+        body {
+            background-color: rgb(34, 108, 177);
+            color: white;
+            display: flex;
+            align-items: center;
+            flex-flow: column nowrap;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 1.1em;
+        }
+
+        section {
+            background-color: white;
+            color: black;
+            width: 400px;
+            border-radius: 10px;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.377);
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Vamos contar</h1>
+    </header>
+    <section>
+        <div>
+            <p>
+                Início:
+                <input type="number" id="txtini"><br>
+            </p>
+            <p>
+                Fim:
+                <input type="number" id="txtfim"><br>
+            </p>
+            <p>
+                Passo:
+                <input type="number" id="txtpas"><br>
+            </p>
+            <p>
+                <input type="button" value="Contar" onclick="contar()">
+            </p>
+        </div>
+        <div id="res">
+            Preparando a contagem...
+        </div>
+    </section>
+    <footer>
+        <p>&copy; CursoemVídeo</p>
+    </footer>
+    <script>
+        function contar() {
+            var ini = Number(document.getElementById('txtini').value)
+            var fim = Number(document.getElementById('txtfim').value)
+            var pas = Number(document.getElementById('txtpas').value)
+            var res = document.getElementById('res')
+            res.innerHTML = ''
+            for (var n = ini; n <= fim;n+=pas) {
+                res.innerHTML += `${n} 👉`
+            }
+        }
+    </script>
+</body>
+</html>
