@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Super Contador</title>
+    <style>
+        body {
+            background-color: rgb(34, 108, 177);
+            color: white;
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 1.1em;
+        }
+
+        section {
+            background-color: white;
+            color: black;
+            width: 500px;
+            border-radius: 10px;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.377);
+            padding: 20px;
+        }
+
+        div > select {
+            width: 146px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Analisador de Números</h1>
+    </header>
+    <section>
+        <div>
+            <p>Número (entre 1 e 100): <input type="number" id="txtini"> <input type="button" value="Adicionar" onclick="adicionar()"></p>
+        </div>
+        <div>
+            <select name="" id="sel" size="10">
+
+            </select> <br>
+        <input type="button" value="Finalizar" onclick="finalizar()"> 
+            <p id="res">
+
+            </p>
+        </div>
+    </section>
+    <footer>
+        <p>&copy; CursoemVídeo</p>
+    </footer>
+    <script>
+        let array = []
+        function adicionar() {
+            let ini = document.getElementById('txtini')
+            let sel = document.getElementById('sel')
+            let res = document.getElementById('res')
+            let n = Number(ini.value)
+            if (n > 100 || n.length == 0 || array.includes(n)) {
+                alert('Valor inválido ou já encontrado na lista!')
+            } else {
+                array.push(n)
+                console.log(array)
+                sel.innerHTML += ''
+                let item = document.createElement('option')
+                item.text = `Valor ${n} adicionado.`
+                sel.appendChild(item)
+            }
+            res.innerHTML = ''
+            
+        }
+        function finalizar() {
+            let res = document.getElementById('res')
+            let inp = document.querySelector('select#sel')
+            let s = 0
+            if (inp.length == 0) {
+                alert('Adicione valores antes de finalizar!')
+            } else {
+                array.sort((a, b) => a - b)
+                for (let soma in array) {
+                    s += Number(array[soma])
+                }
+                console.log(array)
+                res.innerHTML = `<p>Ao todo, temos ${array.length} números  cadastrados.<br></p>`
+                res.innerHTML += `<p>O maior valor informado foi ${array[array. length - 1]}.</p>`
+                res.innerHTML += `<>O menor valor informado foi ${array[0]}.</ p>`
+                res.innerHTML += `<p>Somando todos os valores, temos ${s}`
+                res.innerHTML += `<p>A média dos valores digitados é ${s /  array.length}</p>`
+            }
+            
+        }
+        
+    </script>
+</body>
+</html>
